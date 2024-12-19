@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0"
+	xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+	<persistence-unit name="javastudyjpa" transaction-type="RESOURCE_LOCAL">
+		<description>JPA(Jakarta Persistence API) with Hibernate</description>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<mapping-file>META-INF/orm.xml</mapping-file>
+		<mapping-file>META-INF/queries/persons.xml</mapping-file>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/javastudyjpa?createDatabaseIfNotExist=true&amp;autoReconnect=true&amp;verifyServerCertificate=false&amp;useSSL=true&amp;sslMode=PREFERRED&amp;useTimezone=true&amp;serverTimezone=America/Sao_Paulo&amp;useUnicode=true&amp;connectionCollation=utf8_bin&amp;characterSetResults=utf8&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true" />
+			<property name="jakarta.persistence.jdbc.user" value="root" />
+			<property name="jakarta.persistence.jdbc.password" value="123456" />
+			<property name="jakarta.persistence.schema-generation.create-database-schemas" value="true" />
+			<property name="jakarta.persistence.schema-generation.database.action" value="update" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.jdbc.time_zone" value="America/Sao_Paulo" />
+			<property name="hibernate.connection.autocommit" value="false" />
+
+			<property name="hibernate.jdbc.batch_size" value="10" />
+			<property name="hibernate.order_inserts" value="true" />
+			<property name="hibernate.order_updates" value="true" />
+
+			<!-- configure logging -->
+			<property name="eclipselink.logging.level" value="INFO" />
+			<property name="eclipselink.logging.level.sql" value="FINE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.logging.timestamp" value="true" />
+			<property name="eclipselink.logging.exceptions" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
